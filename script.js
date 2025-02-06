@@ -1,10 +1,11 @@
 // Ativando as ancoragens
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    // Selecione os links tanto do menu principal quanto do offcanvas
+    document.querySelectorAll('.navbar-nav .nav-link, .offcanvas .nav-link').forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault(); // Evita o comportamento padrão do link
 
-            const targetId = this.getAttribute('href').substring(1); // Obtém o ID do botão da aba (ex: "qa-tab")
+            const targetId = this.getAttribute('href').substring(1); // Obtém o ID da aba
             const tabButton = document.getElementById(targetId); // Seleciona o botão da aba
 
             if (tabButton) {

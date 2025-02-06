@@ -45,12 +45,18 @@ header, nav.navbar {
     margin: 0 10px;
 }
 
+/* Ajuste para mudar a cor do texto ao passar o mouse */
 .navbar-nav .nav-link {
     color: var(--primary-color) !important;
 }
 
 .navbar-nav .nav-link:hover {
-    color: var(--secondary-color) !important;
+    color: var(--textbutton-color) !important; /* Agora muda para branco no hover */
+}
+
+/* Aumentando a especificidade para garantir a aplicação */
+.navbar .navbar-nav .nav-item .nav-link:hover {
+    color: var(--textbutton-color) !important;
 }
 
 .navbar-nav {
@@ -227,44 +233,20 @@ hr {
     color: var(--primary-color);
 }
 
-@media (max-width: 768px) {
-    .full-width-banner {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 80% center; /* Ajusta a posição da imagem no banner */
-    }
-
-    .banner-text {
-        top: 77%;
-        left: 5%;
-        right: 5%;
-        transform: translateY(-50%);
-        text-align: left; /* Alinha o texto ao centro no mobile */
-    }
-    .banner-text h1 {
-        font-size: 2em;
-    }
-    .banner-text p {
-        font-size: 0.9em;
-        margin-right: 0; /* Remove o espaço à direita */
-    }
-}
-
 /* Objetivos, Skills e Experiências */
-.objetivos .skills, .experiencias, .desenhando {
+.sobre, .objetivos, .skills, .experiencias, .desenhando {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
-.objetivos h1, .skills h1, .experiencias h1, .desenhando h1 {
+.sobre h1, .objetivos h1, .skills h1, .experiencias h1, .desenhando h1 {
     font-size: 2.5em;
     margin-bottom: 1rem;
     color: var(--text-color);
     margin-left: 1rem;
 }
 
-.objetivos p, .skills p, .experiencias p, .desenhando p {
+.sobre p, .objetivos p, .skills p, .experiencias p, .desenhando p {
     font-size: 1.1em;
     line-height: 1.6;
     color: var(--text-color);
@@ -273,7 +255,7 @@ hr {
     font-weight: 500;
 }
 
-.objetivos .skills + .experiencias .desenhando {
+.sobre .objetivos .skills + .experiencias .desenhando {
     margin-top: 4rem;
 }
 
@@ -425,14 +407,43 @@ footer {
     background-color: var(--secondary-color);
     color: var(--textbutton-color);
     padding: 20px 0;
+    width: 100%;  /* Faz o footer ocupar toda a largura da página */
+    position: relative;
+    left: 0;  /* Garante que o footer comece desde a borda esquerda da tela */
 }
 
-/* Menu de Abas no Mobile */
+/* Responsividade */
 @media (max-width: 768px) {
-    .nav-tabs-abas {
+    .nav-tabs-abas { /* Menu de Abas no Mobile */
         display: flex;
         flex-direction: column; /* Coloca as abas na vertical no mobile */
     }
+}
+
+/* Banner */
+.full-width-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 80% center; /* Ajusta a posição da imagem no banner */
+}
+
+.banner-text {
+    top: 50%;
+    left: 5%;
+    right: 10%; /* Ajuste a largura do texto pela distância da direita */
+    transform: translateY(-50%);
+    text-align: left;
+    max-width: 50%;  /* Define a largura máxima do texto, você pode ajustar esse valor */
+    width: auto;  /* A largura do texto vai se ajustar automaticamente */
+}
+
+.banner-text h1 {
+    font-size: 2em;
+}
+.banner-text p {
+    font-size: 1.1em;
+    margin-right: 0; /* Remove o espaço à direita */
 }
 
 /* menu de abas */
@@ -455,7 +466,39 @@ footer {
 
 .carousel-indicators {
         display: none !important;
+}
+
+@media (max-width: 740px) {
+    .banner-text {
+        position: absolute;
+        top: 70%; /* Ajustando mais para cima */
+        left: 5%;
+        right: 5%;
+        transform: translateY(0);
+        text-align: left;
     }
+    .banner-text h1 {
+        font-size: 1.5em; /* Ajustando para tamanho menor */
+    }
+    .banner-text p {
+        font-size: 0.75em;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 390px) {
+    .banner-text {
+        top: 70%; 
+        transform: translateY(-40%);
+        text-align: left;
+    }
+    .banner-text h1 {
+        font-size: 1.8em; 
+    }
+    .banner-text p {
+        font-size: 0.85em;
+    }
+}
 
 .roboto-bold {
     font-family: var(--font-roboto);
