@@ -1,0 +1,468 @@
+/* Variáveis para cores e fontes */
+:root {
+    --primary-color: #A00068;
+    --secondary-color: #5A3D7D;
+    --background-color: #E8E5EC;
+    --text-color: #1A0452;
+    --textbutton-color: #ffffff;
+    --font-roboto: 'Roboto', sans-serif;
+}
+
+/* Estilos Globais */
+body {
+    background-color: var(--background-color) !important;
+    font-family: var(--font-roboto);
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar, .sticky-top {
+    background-color: var(--background-color) !important;
+    font-family: var(--font-roboto);
+}
+
+header, nav.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    display: block;
+    width: 100%;
+}
+
+.nav-item .btn {
+    margin: 0 5px;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--textbutton-color);
+}
+
+.nav-item .btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+
+.navbar-nav {
+    justify-content: center;
+}
+
+.navbar-toggler {
+    background-color: var(--background-color);
+    border: none;
+}
+
+.navbar-toggler .bi-list {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+/* Navbar2 */
+.navbar-nav2 {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+/* Estilização dos itens */
+.nav-item2 {
+    display: inline-block;
+}
+
+/* Estilização dos botões */
+.btn2 {
+    background-color: var(--textbutton-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color); /* Borda para destacar */
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: all 0.3s ease-in-out; /* Animação suave */
+}
+
+/* Efeito ao passar o mouse */
+.btn2:hover {
+    background-color: var(--primary-color); /* Cor de fundo ao passar o mouse */
+    color: var(--textbutton-color); /* Texto branco no hover */
+}
+
+
+/* Off-canvas Menu */
+.offcanvas {
+    background-color: var(--background-color);
+}
+
+.offcanvas-start {
+    width: 100px;
+}
+
+.offcanvas .offcanvas-body {
+    color: var(--text-color);
+}
+
+.offcanvas-header {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+}
+
+.offcanvas-header .btn-close {
+    color: var(--text-color);
+}
+
+.offcanvas-body .nav.flex-column .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    color: #fff;
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.offcanvas-body .nav.flex-column .btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.offcanvas-body .nav.flex-column .nav-link {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.offcanvas-body .nav.flex-column .nav-link:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.offcanvas .nav-link {
+    color: var(--primary-color);
+}
+
+.offcanvas .nav-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Outros Estilos */
+hr {
+    background-color: var(--text-color);
+    border: none;
+    height: 1px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Ajuste a altura conforme necessário */
+    overflow: hidden;
+}
+
+.full-width-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left; /* Ajusta a posição da imagem para cortar à esquerda */
+}
+
+.banner-text {
+    position: absolute;
+    top: 60%; /* Ajuste a posição para dispositivos móveis */
+    left: 10%; /* Ajuste a posição para dispositivos móveis */
+    transform: translateY(-50%);
+    color: var(--textbutton-color);
+    text-align: left;
+    width: 90%; /* Garante que o texto ocupe mais largura */
+}
+
+.banner-text h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.banner-text p {
+    font-size: 1.1em;
+    margin: 0;
+    margin-right: 400px;
+}
+
+#banner {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-indicators {
+    width: 100%; /* Garantir que o container tenha a largura total disponível */
+    display: flex;
+    justify-content: center; /* Usar flexbox para garantir a centralização dos itens */
+    position: absolute;
+    bottom: 10px;
+    left: 35%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.carousel-indicators button {
+    width: 10px; /* Ajuste o tamanho conforme necessário */
+    height: 10px;
+}
+
+.paragrafo {
+    font-weight: 500;
+}
+
+/* Link acordeon */
+.textlink {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .full-width-banner {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 80% center; /* Ajusta a posição da imagem no banner */
+    }
+
+    .banner-text {
+        top: 77%;
+        left: 5%;
+        right: 5%;
+        transform: translateY(-50%);
+        text-align: left; /* Alinha o texto ao centro no mobile */
+    }
+    .banner-text h1 {
+        font-size: 2em;
+    }
+    .banner-text p {
+        font-size: 0.9em;
+        margin-right: 0; /* Remove o espaço à direita */
+    }
+}
+
+/* Objetivos, Skills e Experiências */
+.objetivos .skills, .experiencias, .desenhando {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.objetivos h1, .skills h1, .experiencias h1, .desenhando h1 {
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    margin-left: 1rem;
+}
+
+.objetivos p, .skills p, .experiencias p, .desenhando p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-weight: 500;
+}
+
+.objetivos .skills + .experiencias .desenhando {
+    margin-top: 4rem;
+}
+
+/* Menu de Abas */
+.nav-tabs-abas {
+    display: flex;
+    justify-content: space-around; /* Distribui igualmente as abas */
+    width: 100%;
+    padding: 0;
+    border-bottom: none; /* Remove a borda inferior das abas */
+    margin-bottom: 0; /* Remove o espaço entre as abas e o conteúdo */
+}
+
+.nav-item-abas {
+    flex: 1; /* Garante que as abas ocupem o mesmo espaço */
+    text-align: center; /* Centraliza o texto dentro das abas */
+}
+
+.nav-item-abas .nav-link-abas {
+    display: block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--textbutton-color); /* Fonte branca */
+    background-color: var(--primary-color); /* Cor de fundo das abas */
+    border: none;
+    border-radius: 10px 10px 0 0; /* Arredondamento suave nos cantos superiores */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+    text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra leve para legibilidade */
+}
+
+/* Hover e estado ativo das abas */
+.nav-item-abas .nav-link-abas:hover,
+.nav-item-abas .nav-link-abas.active {
+    background-color: var(--secondary-color); /* Cor de fundo ao passar o mouse ou aba ativa */
+    color: var(--textbutton-color); /* Cor do texto quando ativo ou em hover */
+}
+
+/* Estilo do conteúdo das abas */
+.tab-content {
+    padding: 2rem;  /* Mantém o padding nas laterais */
+    background-color: var(--secondary-color);
+    border-radius: none;
+}
+
+/* Remove o espaço entre as abas e o conteúdo */
+.tab-pane {
+    margin-top: 0; /* Remove a margem superior do conteúdo da aba */
+    font-family: var(--font-roboto);
+    color: var(--textbutton-color);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.tab-pane h2 {
+    font-size: 2em;
+    color: var(--primary-color);
+}
+
+.tab-pane p {
+    font-size: 1.1em;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.tab-content p {
+    color: var(--textbutton-color);
+}
+
+/* Acordeon */
+.accordion-button {
+    background-color: var(--secondary-color); /* Cor de fundo personalizada */
+    color: var(--textbutton-color); /* Cor do texto personalizada */
+    border: 1px solid var(--secondary-color); /* Borda personalizada */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+/* Quando o acordeon estiver aberto */
+.accordion-button:not(.collapsed) {
+    background-color: var(--primary-color); /* Cor de fundo quando o acordeon estiver aberto */
+    color: var(--textbutton-color); /* Cor do texto quando o acordeon está aberto */
+}
+
+/* Estilo para o conteúdo do acordeon */
+.accordion-body {
+    background-color: #f4f4f4; /* Fundo personalizado do conteúdo */
+    color: #333; /* Cor do texto */
+}
+
+/* Menu Lateral */
+.nav-pills {
+    position: sticky;
+    top: 20px;
+    width: 100%;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.nav-link.active {
+    background-color: #A00068;
+    color: white;
+}
+
+.nav-link:hover {
+    background-color: #5A3D7D;
+    color: white;
+}
+
+/* Conteúdo da aba */
+.tab-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Mosaico das fotos e videos */
+.photo-mosaic {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.mosaic-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #f0f0f0; /* Cor de fundo para vídeos e imagens */
+}
+
+.mosaic-item img, .mosaic-item iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--textbutton-color);
+    padding: 20px 0;
+}
+
+/* Menu de Abas no Mobile */
+@media (max-width: 768px) {
+    .nav-tabs-abas {
+        display: flex;
+        flex-direction: column; /* Coloca as abas na vertical no mobile */
+    }
+}
+
+/* menu de abas */
+.nav-tabs {
+    border-bottom: none;
+}
+
+.nav-item .nav-link {
+    font-size: 1em;
+    padding: 10px;
+}
+
+.tab-content {
+    padding: 1rem;
+}
+
+.tab-pane h2 {
+    font-size: 1.5em;
+}
+
+.carousel-indicators {
+        display: none !important;
+    }
+
+.roboto-bold {
+    font-family: var(--font-roboto);
+    font-weight: 700;
+}
+
+.roboto-thin {
+    font-family: var(--font-roboto);
+    font-weight: 100;
+}
