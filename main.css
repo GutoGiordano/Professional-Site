@@ -403,6 +403,27 @@ hr {
     object-fit: cover;
 }
 
+.mosaic-item img, .mosaic-item iframe {
+    cursor: pointer;
+}
+
+.refresh-btn {
+    display: block;  /* Garante que ele apareça */
+    margin: 10px auto; /* Centraliza e adiciona espaço */
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    background-color: #A00068; /* Sua cor primary-color */
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.refresh-btn:hover {
+    background-color: #5A3D7D; /* Sua cor secondary-color */
+}
+
 footer {
     background-color: var(--secondary-color);
     color: var(--textbutton-color);

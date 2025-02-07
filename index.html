@@ -528,9 +528,10 @@
                 Quer saber mais? Dê uma olhada nas minhas aventuras e projetos pessoais. <br><br>
             </p>
         
-            <div class="photo-mosaic">
+            <div class="photo-mosaic mb-3">
                 <!-- As imagens e vídeos serão inseridos dinamicamente via JavaScript -->
             </div>
+            <button id="refreshMosaic" class="refresh-btn">🔄 Redesenhar</button>
         </div>
 
     </div>      
@@ -544,5 +545,17 @@
 <!-- scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./script.js"></script>
+
+<!-- Modal para exibir imagens ampliadas -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img id="modalImage" class="img-fluid" alt="Imagem ampliada">
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

@@ -43,11 +43,14 @@ accordions.forEach(function(accordion) {
     });
 });
 
-// Galeria randon
+// Galeria random
 document.addEventListener('DOMContentLoaded', function () {
     const mosaicContainer = document.querySelector('.photo-mosaic');
-    
-    // Array contendo links de imagens e vídeos (substitua pelos seus links)
+    const modalImage = document.getElementById('modalImage'); // Referência à imagem do modal
+    const imageModal = new bootstrap.Modal(document.getElementById('imageModal')); // Instância do modal Bootstrap
+    const refreshButton = document.getElementById('refreshMosaic'); // Botão para atualizar o mosaico
+
+    // Array contendo links de imagens e vídeos
     const items = [ //onde estão as fotos e videos
         { type: 'image', src: './lib/pessoal/1.jpg'},
         { type: 'image', src: './lib/pessoal/2.jpg'},
@@ -111,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { type: 'image', src: './lib/pessoal/52.jpg' },
         { type: 'image', src: './lib/pessoal/53.jpg' },
         { type: 'image', src: './lib/pessoal/54.jpg' },
-        // Adicione todos os itens aqui
+        // Quando precisar, adicione mais itens
     ];
 
     let videoPlaying = false;
@@ -120,16 +123,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Função para gerar o mosaico
     function generateMosaic() {
-        // Embaralhando os itens aleatoriamente
         const shuffledItems = items.sort(() => Math.random() - 0.5);
-
-        // Limitar a exibição dos itens
         const visibleItems = shuffledItems.slice(0, 15);
-        
-        // Limpando o container
         mosaicContainer.innerHTML = '';
 
-        // Adicionando os itens ao container
         visibleItems.forEach(item => {
             const div = document.createElement('div');
             div.classList.add('mosaic-item');
@@ -138,27 +135,32 @@ document.addEventListener('DOMContentLoaded', function () {
                 const img = document.createElement('img');
                 img.src = item.src;
                 img.alt = 'Imagem';
+                img.classList.add('clickable'); // Classe para indicar que pode clicar
+                img.style.cursor = 'pointer'; // Muda o cursor para indicar que pode clicar
+
+                // Evento de clique para abrir no modal
+                img.addEventListener('click', function () {
+                    modalImage.src = item.src;
+                    imageModal.show();
+                });
+
                 div.appendChild(img);
             } else if (item.type === 'video') {
                 const a = document.createElement('a');
                 a.href = item.src;
-                a.target = '_blank'; // Abrir vídeo em nova aba
-                
+                a.target = '_blank';
+
                 const iframe = document.createElement('iframe');
                 iframe.src = item.src;
                 iframe.frameBorder = '0';
                 iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
                 iframe.allowFullscreen = true;
-                
+
                 a.appendChild(iframe);
                 div.appendChild(a);
-                
-                // Adicionando evento para saber quando o vídeo começa a tocar
+
                 iframe.addEventListener('load', () => {
-                    // Lógica para iniciar contagem do tempo do vídeo
                     videoPlaying = true;
-                    videoDuration = 60; // Duração do vídeo em segundos (exemplo de 1 minuto)
-                    videoTimeLeft = videoDuration;
                 });
             }
 
@@ -166,20 +168,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Função para verificar o tempo restante e decidir se faz a atualização
+    // Função para verificar se pode atualizar o mosaico
     function checkUpdateTime() {
-        if (videoPlaying && videoTimeLeft > 30) {
-            // Se o vídeo estiver tocando e restar mais de 30 segundos, adiamos a atualização
-            setTimeout(checkUpdateTime, 1000);
-        } else {
-            // Se não houver vídeo tocando ou o tempo restante for pequeno, atualizamos normalmente
+        if (!videoPlaying) {
             generateMosaic();
         }
     }
 
-    // Gerar o mosaico ao carregar a página
+    // Gera o mosaico ao carregar
     generateMosaic();
 
-    // tempo para atualização com verificação se tem video sendo reproduzido antes de fazer a atualização
-    setInterval(checkUpdateTime, 5000); 
+    // Atualiza automaticamente a cada 30 segundos
+    setInterval(checkUpdateTime, 30000);
+
+    // Atualiza manualmente ao clicar no botão
+    if (refreshButton) {
+        refreshButton.addEventListener('click', generateMosaic);
+    }
 });
