@@ -181,8 +181,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Atualiza automaticamente a cada 30 segundos
     setInterval(checkUpdateTime, 30000);
 
-    // Atualiza manualmente ao clicar no botão
+    // Atualiza manualmente ao clicar no botão e rola para o topo do mosaico
     if (refreshButton) {
-        refreshButton.addEventListener('click', generateMosaic);
+        refreshButton.addEventListener('click', function () {
+            generateMosaic(); // Atualiza o mosaico
+
+            // Espera um pequeno tempo para garantir que as imagens carregaram antes de rolar
+            setTimeout(() => {
+                if (mosaicContainer && mosaicContainer.children.length > 0) {
+                    mosaicContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100); // Delay menor para melhor experiência
+        });
     }
 });

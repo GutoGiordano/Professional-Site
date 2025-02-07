@@ -413,15 +413,15 @@ hr {
     padding: 8px 16px;
     font-size: 16px;
     border: none;
-    background-color: #A00068; /* Sua cor primary-color */
-    color: white;
+    background-color: var(--background-color); /* Sua cor primary-color */
+    color: var(--primary-color);
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 .refresh-btn:hover {
-    background-color: #5A3D7D; /* Sua cor secondary-color */
+    background-color: var(--background-color); /* Sua cor secondary-color */
 }
 
 footer {
